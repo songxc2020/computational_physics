@@ -1,0 +1,33 @@
+new=[0,1];
+subplot(2,2,1);
+axis([0,1,-0.5,0.5]);
+for k=1:4
+    old=new;
+    n=length(old)-1;
+    diff=(old(2:end)-old(1:end-1))/4;
+    p1=old(1:end-1)+diff;
+    p2=p1+diff*(i);
+    p3=p2+diff;
+    p4=p3-diff*2*(i);
+    p=p3-diff*(i);
+    p5=p4+diff;
+    p6=p5+diff*(i);
+    new(1:15:15*n-14)=old(1:end-1);
+    new(2:15:15*n-13)=p1;
+    new(3:15:15*n-12)=p1;
+    new(4:15:15*n-11)=p2;
+    new(5:15:15*n-10)=p2;
+    new(6:15:15*n-9)=p3;
+    new(7:15:15*n-8)=p;
+    new(8:15:15*n-7)=p;
+    new(9:15:15*n-6)=p4;
+    new(10:15:15*n-5)=p4;
+    new(11:15:15*n-4)=p5;
+    new(12:15:15*n-3)=p5;
+    new(13:15:15*n-2)=p6;
+    new(14:15:15*n-1)=p6;
+    new(15:15:15*n)=old(2:end);
+    subplot(2,2,k)
+    plot(new)
+    axis([0,1,-0.5,0.5]);
+end
